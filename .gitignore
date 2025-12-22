@@ -1,0 +1,61 @@
+# --- Secrets / local config ---
+.env
+.env.*
+!.env.example
+
+# --- Local persistent data (SQLite, etc.) ---
+data/
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+*.sqlite-journal
+*.db-wal
+*.db-shm
+*.sqlite-wal
+*.sqlite-shm
+
+# --- Python bytecode / caches ---
+__pycache__/
+*.py[cod]
+*$py.class
+
+# --- Virtualenvs ---
+.venv/
+venv/
+ENV/
+env/
+
+# --- Build / packaging ---
+build/
+dist/
+*.egg-info/
+.eggs/
+pip-wheel-metadata/
+
+# --- Test / coverage ---
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.nox/
+.tox/
+
+# --- Type check / lint caches ---
+.mypy_cache/
+.ruff_cache/
+.pyright/
+
+# --- IDE / OS junk ---
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# --- Logs ---
+*.log
+
+# --- Docker noise ---
+# Usually keep these tracked if you have them; uncomment if you generate locally
+# docker-compose.override.yml
+

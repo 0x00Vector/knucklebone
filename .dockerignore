@@ -1,0 +1,49 @@
+# Secrets / local config
+.env
+.env.*
+
+# Local persistent data (SQLite volume)
+data/
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+*.sqlite-journal
+*.db-wal
+*.db-shm
+*.sqlite-wal
+*.sqlite-shm
+
+# Git + misc
+.git
+.gitignore
+README.md
+
+# Python caches
+__pycache__/
+*.py[cod]
+
+# Virtualenvs
+.venv/
+venv/
+ENV/
+env/
+
+# Test / tooling caches
+.pytest_cache/
+.coverage
+.coverage.*
+.mypy_cache/
+.ruff_cache/
+.pyright/
+.tox/
+.nox/
+
+# IDE / OS junk
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
