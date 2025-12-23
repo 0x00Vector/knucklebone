@@ -18,11 +18,11 @@ RUN mkdir -p /app/data && \
     chown -R botuser:botuser /app/data
 
 # 4. Copy Code
-COPY mork_borg_bot.py .
+COPY /bot ./bot/
 
 # 5. Switch to Non-Root
 USER botuser
 
 # 6. Run (Exec Form)
 # Ensure your script reads os.getenv('BOT_TOKEN') internally!
-CMD ["python", "mork_borg_bot.py"]
+CMD ["python", "-m", "bot.main"]
