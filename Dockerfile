@@ -24,5 +24,5 @@ COPY COPY bot/ ./bot/
 USER botuser
 
 # 6. Run (Exec Form)
-# Ensure your script reads os.getenv('BOT_TOKEN') internally!
+# Ensure your script reads os.getenv('DISCORD_TOKEN') internally!
 CMD ["python", "-m", "bot.main"]
