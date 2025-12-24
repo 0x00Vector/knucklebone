@@ -18,7 +18,7 @@ RUN mkdir -p /app/data && \
     chown -R botuser:botuser /app/data
 
 # 4. Copy Code
-COPY COPY bot/ ./bot/
+COPY bot/ ./bot/
 
 # 5. Switch to Non-Root
 USER botuser
