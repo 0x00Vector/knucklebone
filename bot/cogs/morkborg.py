@@ -5,10 +5,12 @@ from discord.ext import commands
 
 
 class MorkBorg(commands.Cog):
+    mb = app_commands.Group(name="mb", description="Mörk Borg commands.")
+
     def __init__(self, bot: commands.Bot) -> None:
         self.bot = bot
 
-    @app_commands.command(name="mb", description="Mörk Borg ability check.")
+    @mb.command(name="check", description="Mörk Borg ability check.")
     @app_commands.describe(modifier="Your ability score modifier (e.g. +2, -1)")
     async def mb_check(self, interaction: discord.Interaction, modifier: int) -> None:
         # Construct the dice expression
@@ -37,6 +39,29 @@ class MorkBorg(commands.Cog):
 
         if outcome:
             embed.add_field(name="Result", value=outcome, inline=False)
+
+        await interaction.response.send_message(embed=embed)
+
+    @mb.command(name="reaction", description="Mörk Borg reaction roll (2d6).")
+    async def mb_reaction(self, interaction: discord.Interaction) -> None:
+        result = d20.roll("2d6")
+        total = result.total
+
+        if total <= 3:
+            outcome = "Kill!"
+        elif total <= 6:
+            outcome = "Angered"
+        elif total <= 8:
+            outcome = "Indifferent"
+        elif total <= 10:
+            outcome = "Almost friendly"
+        else:
+            outcome = "Helpful"
+
+        embed = discord.Embed(title="Mörk Borg Reaction", color=discord.Color.blurple())
+        embed.add_field(name="Roll", value=f"{result.result}", inline=True)
+        embed.add_field(name="Total", value=f"**{total}**", inline=True)
+        embed.add_field(name="Outcome", value=outcome, inline=False)
 
         await interaction.response.send_message(embed=embed)
 
